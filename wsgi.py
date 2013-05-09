@@ -9,10 +9,13 @@ def main():
 
 @app.route('/generuj', methods=['POST'])
 def barcode():
-    barcode = ''
     if request.method == 'POST':
         barcode = request.form.get('barcode', '')
-        if barcode and len(barcode) == 16 and int(barcode):
+        if barcode and len(barcode) == 16:
+            try:
+                int(barcode)
+            except ValueError:
+                return redirect('/')
             resp = make_response(generate_barcode(barcode))
             resp.content_type = "image/svg+xml"
             return resp

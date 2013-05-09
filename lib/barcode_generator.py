@@ -16,5 +16,5 @@ def generate_barcode(barcode):
             else:
                 svg_document.add(svg_document.rect(insert = (start_x + x, start_y), size = ("2px", "70px"), stroke_width = "0", stroke = "black", fill = "rgb(255,255,255)"))
             x += 2
-        svg_document.add(svg_document.text(barcode, insert = (start_x + 60, start_y + 90)))
+        svg_document.add(svg_document.text(barcode, insert = (start_x + 50, start_y + 90)))
         return svg_document.tostring()
