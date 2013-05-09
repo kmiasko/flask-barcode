@@ -16,8 +16,7 @@ def barcode():
             resp = make_response(generate_barcode(barcode))
             resp.content_type = "image/svg+xml"
             return resp
-        else:
-            return redirect('/')
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
